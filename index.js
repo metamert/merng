@@ -1,12 +1,12 @@
 const express=require("express")
 const Post =require("./modals/postmodal")
 const mongoose =require("mongoose")
-const {gql,ApolloServer} =require("apollo-server-express")
+const { ApolloServer, gql } = require('apollo-server');
 
 const typeDefs=require("./graphql/typeDef")
 const resolvers =require("./graphql/resolvers/Root.resolvers")
 
-const app=express();
+
 
 
 
@@ -38,8 +38,14 @@ mongoose.connect(MONGO, {useNewUrlParser:true})
 console.log("mongodb bağlandı")
 
 
-server.applyMiddleware({app})
-app.listen(process.env.PORT || 5000,()=>console.log(`server is running on : localhost:5000${server.graphqlPath}`))
 
-}).catch(err=>console.log(err))
+
+server.listen({ port: process.env.PORT || 5000 }).then(({ url }) => {
+    console.log(`🚀 Server ready at ${url}`);
+  });
+
+
+})
+
+.catch(err=>console.log(err))
 
