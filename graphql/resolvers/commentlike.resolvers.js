@@ -71,7 +71,7 @@ console.log(args.commentid)
 
         createcomment: async (parent, args, context) => {
             const user = check(context)
-
+console.log(user.username)
 
             if (args.body.trim() === "") {
 
@@ -85,7 +85,7 @@ console.log(args.commentid)
                 post.comments.unshift({
 
                     body: args.body,
-                    username: post.username,
+                    username: user.username,
                     createdAt: new Date().toISOString
 
 
