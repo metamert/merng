@@ -1,6 +1,6 @@
 const bcrypt=require("bcryptjs")
 const jwt = require("jsonwebtoken")
-const {SECRET_KEY}=require("../../config")
+const SECRET_KEY = process.env.SECRET_KEY
 const User = require("../../modals/usermodal")
 const {UserInputError}= require("apollo-server-express")
 const {validationregister,validationsignin} =require("../../utils/validation")
