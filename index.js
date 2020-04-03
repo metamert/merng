@@ -36,7 +36,7 @@ console.log("mongodb bağlandı")
 
 
 server.applyMiddleware({app})
-app.listen({port:PORT},()=>console.log(`server is running on : localhost:5000${server.graphqlPath}`))
+app.listen(process.env.PORT || 5000,()=>console.log(`server is running on : localhost:5000${server.graphqlPath}`))
 
 }).catch(err=>console.log(err))
 
