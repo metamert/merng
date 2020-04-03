@@ -13,7 +13,7 @@ if(responseheader){
 const token=responseheader.split("Bearer ")[1]
 if(token){
     try {
-        const user=jwt.verify(token,SECRET_KEY)
+        const user=jwt.verify(token,`${SECRET_KEY}`)
         console.log(user)
 return user;
 
