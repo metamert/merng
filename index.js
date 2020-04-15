@@ -12,10 +12,9 @@ const resolvers =require("./graphql/resolvers/Root.resolvers")
 
 
 require("dotenv").config()
-const MONGO=process.env.MONGO
-
-
-
+const password=process.env.PASS
+const MONGO=`mongodb+srv://skrite15:${password}@cluster0-bwup9.mongodb.net/test?retryWrites=true&w=majority`
+const PORT=process.env.PORT
 
 
 
@@ -37,11 +36,19 @@ mongoose.connect(MONGO, {useNewUrlParser:true})
 
 console.log("mongodb bağlandı")
 
+console.log(password)
+
+console.log(process.env.SECRET_KEY)
+
+console.log(process.env.PORT)
 
 
 
-server.listen({ port: process.env.PORT || 5000 }).then(({ url }) => {
+server.listen({ port: PORT }).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
+
+  
+
   });
 
 
